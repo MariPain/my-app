@@ -1,0 +1,21 @@
+
+body {
+  background-color: yellow;
+}
+
+ul {
+
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+li {
+  justify-content: space-between;
+  background-color: coral;
+  list-style: none;
+  border: solid 4px;
+  border-radius: 10px;
+
+}

@@ -1,80 +1,77 @@
 import React from "react";
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      texto: 'Te vendo la moto',
-    }
-    // this.actualizar = this.actualizar.bind(this)
-  }
-  // actualizar( evento ) {
-  actualizar = (evento) => {
-    console.log(evento.target.value)
-    this.setState({texto: evento.target.value})
-  }
-  render(){
-    const {texto} = this.state;
-    return (
-      <>
-        <Titulo txt={texto}/>
-        <Input cambiaElEstado={this.actualizar}/>
-        <Lista />
-      </>
-    )
-  }
-}
-class Lista extends React.Component {
-  constructor() {
-    super();
-      this.state = {
-        coleccion: [
-          {
-            image: 'neo.jpg',
-            title: 'Moto Neo',
-            text: 'La pequeña gigante. No necesita permiso de conducción',
-            value: '35€'
-          },
-          {
-            image: 'otra.jpg',
-            title: 'Moto dos',
-            text: 'La pequeña gigante. No necesita permiso de conducción',
-            value: '40€'
-          },
-          {
-            image: 'tres.jpg',
-            title: 'Moto gp',
-            text: 'La pequeña gigante. No necesita permiso de conducción',
-            value: '300€'
-          }
-        ]
-      }
-  }
-  render() {
-    const {coleccion} = this.state;
-    return (
-      <ul>
-      {coleccion.map((moto, index) => {
-        return <li key={index}>{moto.image}, {moto.title}, {moto.text}, {moto.value}</li>
-      })}
-      </ul>
-    )
-  }
-}
-class Input extends React.Component {
-  render() {
-    const {cambiaElEstado} = this.props;
-    return (
-      <input type="number" onChange={cambiaElEstado}/>
-    )
-  }
-}
-class Titulo extends React.Component {
-  render() {
-    const {number} = this.props
-    return (
+      title: 'Carrito de la compra',
+      subtitle: 'Valor total de la compra',
 
-      <p>{number}</p>
+      precioTotal: 0,
+      products: [{
+          id: 1,
+          image: 'neo.jpg',
+          tite: 'Moto Neo',
+          text: 'La pequeña gigante. No necesita permiso de conducción',
+          value: '35',
+          currency: '€',
+          quantity: 0,
+        },
+        {
+          id: 2,
+          image: 'maera.jpg',
+          tite: 'Moto Maera',
+          text: 'Modelo biodegradable. No exponer a temperaturas elevadas ni a humedad superior al 8%',
+          value: '150',
+          currency: '€',
+          quantity: 0,
+        },
+        {
+          id: 3,
+          image: 'HondaRuckusCustom.jpg',
+          tite: 'Honda Motra',
+          text: 'Manejable y dinamica. Genial para los meses de cuarentena',
+          value: '300',
+          currency: '€',
+          quantity: 0,
+        }
+      ]
+    }
+  }
+
+  addProduct = (id) => {
+
+  }
+
+  render() {
+    const {
+      title,
+      subtitle,
+      products
+    } = this.state;
+
+
+    const imprimirProducto = (product) => {
+      const {image, title, text, value, currency, quantity} = product
+      return (
+        <article>
+          <img src={image}/>
+          <h1>{title}</h1>
+          <p>{text}</p>
+          <p>{value}</p>
+          <p>{quantity} {currency}</p>
+        </article>
+      )
+    }
+
+    return (
+      <main>
+        <h1>{title}</h1>
+        <h2>{subtitle}</h2>
+        {products.map(imprimirProducto)}
+      </main>
     )
   }
 }
+
 export default App;

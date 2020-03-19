@@ -1,21 +1,40 @@
 
 body {
-  background-color: yellow;
+  background-color: white;
+
+
+}
+
+
+
+h1, h2 {
+  font-family: 'Gloria Hallelujah';
+}
+
+h2 {
+  color: rgba(44,223,110,.96);
+  display: flex;
+  justify-content: flex-end;
+}
+
+img {
+    width: 100px;
+    padding: 20px;
+    position: sticky;
 }
 
 ul {
-
   display: flex;
   flex-direction: column;
-
-
+  color: violet;
+  font-family: 'Gloria Hallelujah';
 }
 
 li {
-  justify-content: space-between;
-  background-color: coral;
+  padding: 30px;
+  background-color: ;
   list-style: none;
   border: solid 4px;
-  border-radius: 10px;
-
+  border-radius: 5px;
+  border-color: blue;
 }

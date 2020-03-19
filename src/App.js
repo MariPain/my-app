@@ -39,8 +39,8 @@ class App extends React.Component {
     }
   }
 
-  addProduct = (id) => {
-
+  addOne = (id) => {
+      console.log(id)
   }
 
   render() {
@@ -52,7 +52,7 @@ class App extends React.Component {
 
 
     const imprimirProducto = (product) => {
-      const {image, title, text, value, currency, quantity} = product
+      const {image, title, text, value, currency, quantity, id} = product
       return (
         <article>
           <img src={image}/>
@@ -60,6 +60,7 @@ class App extends React.Component {
           <p>{text}</p>
           <p>{value}</p>
           <p>{quantity} {currency}</p>
+          <button onClick={ ()=> this.addOne(id)}>&#9883;</button>
         </article>
       )
     }
